@@ -1,0 +1,68 @@
+﻿@model IEnumerable<GameLibrary.Models.Game>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Game Store</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">
+        New Game Add <i class="fa-solid fa-plus"></i>
+    </a>
+</p>
+<table class="styled-table">
+    <thead>
+        <tr class="active-row">
+            <th>
+                @Html.DisplayNameFor(model => model.GameName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameImage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="active-row">
+                <td>
+                    @Html.DisplayFor(modelItem => item.GameName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GameType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.GameImage)" width="100" height="100">
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.GameId" class="btn btn-warning">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.GameId" class="btn btn-info">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.GameId" class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
