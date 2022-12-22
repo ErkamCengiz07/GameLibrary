@@ -23,8 +23,10 @@ namespace GameLibrary.Models
 
         public Double Price { get; set; }
 
+        [DisplayName("Create Date")]
         public DateTime CreateDate { get; set; }
 
+        [DisplayName("Game Image")]
         [Column(TypeName = "nvarchar(4000)")]
         public string GameImage { get; set; }
     }
