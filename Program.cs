@@ -8,6 +8,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<GameLibraryDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Connection")));
 
+//builder.Services.AddAuthentication()
+//    .AddJwtBearer();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,6 +30,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Game}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

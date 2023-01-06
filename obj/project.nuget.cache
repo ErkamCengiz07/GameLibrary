@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "eV3b6cD9wXhd4wcxtIlHDeX6A6Jvw0+XRgQWDtBgpwuw6OBum4b6x2Q2dwZFHMfank5+SbDjFSpUioXXDJ0/BQ==",
+  "dgSpecHash": "gJ6aAe1Kz8BRi9uqGtvZvy9n2LonoAu1nr/YP5r/YsCjqpHg8p2K1FgWm+Xw88pBMRqhy59F6AYVMM50CqCGcg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Element\\source\\repos\\GameLibrary\\GameLibrary\\GameLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Element\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Element\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Element\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Element\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.1\\microsoft.aspnetcore.authentication.jwtbearer.7.0.1.nupkg.sha512",
     "C:\\Users\\Element\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.11\\microsoft.aspnetcore.razor.language.6.0.11.nupkg.sha512",
     "C:\\Users\\Element\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\Element\\.nuget\\packages\\microsoft.build\\17.3.2\\microsoft.build.17.3.2.nupkg.sha512",
