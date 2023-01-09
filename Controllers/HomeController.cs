@@ -28,6 +28,7 @@ namespace GameLibrary.Controllers
             return View();
         }
 
+        
         public async Task<IActionResult> LogOut()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

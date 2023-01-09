@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GameLibrary.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     public class AccessController : Controller
     {
         private readonly GameLibraryDbContext _context;
@@ -18,6 +18,7 @@ namespace GameLibrary.Controllers
         {
             _context = context;
         }
+
 
         public IActionResult Login()
         {
@@ -30,6 +31,7 @@ namespace GameLibrary.Controllers
             return View();
         }
 
+        
         [HttpPost]
         public async Task<IActionResult> Login(VMLogin modelLogin)
         {
