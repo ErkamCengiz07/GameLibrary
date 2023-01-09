@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GameLibrary.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GameLibrary.Controllers
 {
+    [Authorize]
     public class CustomerController : Controller
     {
         private readonly GameLibraryDbContext _context;

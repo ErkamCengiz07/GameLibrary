@@ -11,88 +11,87 @@ using Microsoft.AspNetCore.Authorization;
 namespace GameLibrary.Controllers
 {
     [Authorize]
-    public class GameController : Controller
+    public class UserController : Controller
     {
         private readonly GameLibraryDbContext _context;
 
-        public GameController(GameLibraryDbContext context)
+        public UserController(GameLibraryDbContext context)
         {
             _context = context;
         }
 
-        // GET: Game
+        // GET: User
         public async Task<IActionResult> Index()
         {
-              return _context.Games != null ? 
-                          View(await _context.Games.ToListAsync()) :
-                          Problem("Entity set 'GameLibraryDbContext.Games'  is null.");
+              return _context.Users != null ? 
+                          View(await _context.Users.ToListAsync()) :
+                          Problem("Entity set 'GameLibraryDbContext.Users'  is null.");
         }
 
-        // GET: Game/Details/5
+        // GET: User/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Games == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            var game = await _context.Games
-                .FirstOrDefaultAsync(m => m.GameId == id);
-            if (game == null)
+            var user = await _context.Users
+                .FirstOrDefaultAsync(m => m.UserId == id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(game);
+            return View(user);
         }
 
-        // GET: Game/Create
+        // GET: User/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Game/Create
+        // POST: User/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("GameId,GameName,GameType,Price,CreateDate,GameImage")] Game game)
+        public async Task<IActionResult> Create([Bind("UserId,UserName,Password,Rank")] User user)
         {
             if (ModelState.IsValid)
             {
-                game.CreateDate = DateTime.Now;
-                _context.Add(game);
+                _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(game);
+            return View(user);
         }
 
-        // GET: Game/Edit/5
+        // GET: User/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Games == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            var game = await _context.Games.FindAsync(id);
-            if (game == null)
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            return View(game);
+            return View(user);
         }
 
-        // POST: Game/Edit/5
+        // POST: User/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("GameId,GameName,GameType,Price,CreateDate,GameImage")] Game game)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,UserName,Password,Rank")] User user)
         {
-            if (id != game.GameId)
+            if (id != user.UserId)
             {
                 return NotFound();
             }
@@ -101,12 +100,12 @@ namespace GameLibrary.Controllers
             {
                 try
                 {
-                    _context.Update(game);
+                    _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!GameExists(game.GameId))
+                    if (!UserExists(user.UserId))
                     {
                         return NotFound();
                     }
@@ -117,49 +116,49 @@ namespace GameLibrary.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(game);
+            return View(user);
         }
 
-        // GET: Game/Delete/5
+        // GET: User/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Games == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            var game = await _context.Games
-                .FirstOrDefaultAsync(m => m.GameId == id);
-            if (game == null)
+            var user = await _context.Users
+                .FirstOrDefaultAsync(m => m.UserId == id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(game);
+            return View(user);
         }
 
-        // POST: Game/Delete/5
+        // POST: User/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Games == null)
+            if (_context.Users == null)
             {
-                return Problem("Entity set 'GameLibraryDbContext.Games'  is null.");
+                return Problem("Entity set 'GameLibraryDbContext.Users'  is null.");
             }
-            var game = await _context.Games.FindAsync(id);
-            if (game != null)
+            var user = await _context.Users.FindAsync(id);
+            if (user != null)
             {
-                _context.Games.Remove(game);
+                _context.Users.Remove(user);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool GameExists(int id)
+        private bool UserExists(int id)
         {
-          return (_context.Games?.Any(e => e.GameId == id)).GetValueOrDefault();
+          return (_context.Users?.Any(e => e.UserId == id)).GetValueOrDefault();
         }
     }
 }
