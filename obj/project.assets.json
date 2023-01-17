@@ -10588,23 +10588,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\felse\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Element\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\felse\\source\\repos\\GameLibrary\\GameLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\Element\\source\\repos\\GameLibrary\\GameLibrary\\GameLibrary.csproj",
       "projectName": "GameLibrary",
-      "projectPath": "C:\\Users\\felse\\source\\repos\\GameLibrary\\GameLibrary.csproj",
-      "packagesPath": "C:\\Users\\felse\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\felse\\source\\repos\\GameLibrary\\obj\\",
+      "projectPath": "C:\\Users\\Element\\source\\repos\\GameLibrary\\GameLibrary\\GameLibrary.csproj",
+      "packagesPath": "C:\\Users\\Element\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Element\\source\\repos\\GameLibrary\\GameLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\felse\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Element\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

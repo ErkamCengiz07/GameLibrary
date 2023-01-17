@@ -7,6 +7,7 @@ using GameLibrary.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using System.Text.Json;
 
 namespace GameLibrary.Controllers
 {
@@ -31,12 +32,12 @@ namespace GameLibrary.Controllers
             return View();
         }
 
-        
+
         [HttpPost]
         public async Task<IActionResult> Login(VMLogin modelLogin)
         {
             var result = _context.Users.SingleOrDefault(u => u.UserName == modelLogin.UserName && u.Password == modelLogin.Password);
-
+            TempData["result"] = JsonSerializer.Serialize(result);
             if (result != null)
             {
                 List<Claim> claims = new List<Claim>()
@@ -56,7 +57,7 @@ namespace GameLibrary.Controllers
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity), properties);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home", TempData["result"]);
             }
 
             ViewData["ValidateMessage"] = "User not found";

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Text.Json;
 
 namespace GameLibrary.Controllers
 {
@@ -20,7 +21,8 @@ namespace GameLibrary.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var result = JsonSerializer.Deserialize<VMLogin>(TempData["Result"].ToString());
+            return View(result);
         }
 
         public IActionResult Privacy()
@@ -28,7 +30,7 @@ namespace GameLibrary.Controllers
             return View();
         }
 
-        
+
         public async Task<IActionResult> LogOut()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
